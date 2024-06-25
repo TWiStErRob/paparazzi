@@ -380,11 +380,7 @@ public class PaparazziSdk @JvmOverloads constructor(
     return image
   }
 
-  private fun scaleImage(image: BufferedImage): BufferedImage {
-    val scale = ImageUtils.getThumbnailScale(image)
-    // Only scale images down, so we don't waste storage space enlarging smaller layouts.
-    return if (scale < 1f && !useDeviceResolution) ImageUtils.scale(image, scale, scale) else image
-  }
+  private fun scaleImage(image: BufferedImage): BufferedImage = image
 
   private fun validateLayoutAccessibility(view: View, image: BufferedImage? = null) {
     LayoutValidator.updatePolicy(
